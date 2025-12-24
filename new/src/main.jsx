@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 // 1. Core Styles (Inka order bohat zaroori hai)
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap base
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Bootstrap JS (Navbar toggle ke liye zaroori hai)
-import '../styles/main.css'; // Aapki apni external professional CSS
+import './Styles/main.css'; // Aapki apni external professional CSS
 import './index.css'; // Global base styles
 
 // 2. Component Import
