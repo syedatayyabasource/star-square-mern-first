@@ -1,0 +1,152 @@
+/* --- 1. MODERN PROJECT VARIABLES --- */
+:root {
+  --navy-dark: #0d1b2a;
+  --navy-mid: #1b263b;
+  --navy-light: #415a77; /* Defined for gradient */
+  --gold: #f4c430;
+  --gold-glow: rgba(244, 196, 48, 0.3);
+  --bg-soft: #f4f7f6;
+  --white: #ffffff;
+  --glass: rgba(255, 255, 255, 0.85);
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* --- 2. GLOBAL RESET & LAYOUT --- */
+body {
+  background-color: var(--bg-soft);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.app-container, .home-wrapper, .login-page {
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* --- 3. DASHBOARD SPECIFIC LAYOUT --- */
+.dashboard-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.dashboard-sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: linear-gradient(180deg, var(--navy-dark) 0%, #000 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 0 30px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.dashboard-main {
+  flex-grow: 1;
+  padding: 40px;
+  background: var(--bg-soft);
+}
+
+/* --- 4. NAVIGATION & INTERACTIVITY --- */
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  margin: 8px 15px;
+  border-radius: 12px;
+  color: #adb5bd;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--gold);
+  transform: translateX(10px);
+}
+
+.nav-item.active {
+  background: var(--gold);
+  color: var(--navy-dark);
+  font-weight: 600;
+  box-shadow: 0 10px 20px var(--gold-glow);
+}
+
+/* --- 5. PREMIUM CARDS (GLASS EFFECT) --- */
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.content-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+/* --- 6. PULSING ONLINE INDICATOR --- */
+.pulse-dot {
+  height: 10px; width: 10px;
+  background-color: #28a745;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  width: 100%; height: 100%;
+  background: inherit;
+  border-radius: inherit;
+  animation: pulse-ring 1.5s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+/* --- 7. UTILITIES & GRADIENTS (ERROR FIXED HERE) --- */
+.text-gradient {
+  background: linear-gradient(90deg, var(--navy-dark), var(--navy-light));
+  /* Standard Syntax */
+  background-clip: text;
+  /* Webkit Syntax for Browser Support */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Color fallback for old browsers */
+  color: var(--navy-dark);
+  font-weight: 800;
+}
+
+.hover-scale {
+  transition: var(--transition);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+.portal-btn {
+  background: linear-gradient(135deg, #f4c430 0%, #d4af37 100%);
+  color: #0d1b2a !important;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 15px rgba(212, 175, 55, 0.2);
+}
+
+.portal-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
+}
